@@ -1,108 +1,132 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width initial-scale=1.0 ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Disha Computer Institute</title>
 <link rel="stylesheet" href="style.css">
 <style>
-h1{color:orange;}
 
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 2px solid black;
-            padding: 8px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-     
-    </style>
+</style>
 </head>
+
 <body>
-<header>
+
+    <header>
         <h1><span class="D">DiSHA</span></h1>
         <p class="C"><b>Computer Institute</b></p>
         <p class="E">Experts in Computer Training</p>
     </header>
-<nav>
+
+    <nav>
         <a href="index.html">Introduction</a>
         <a href="Courses.html">Courses</a>
         <a href="About.html">About</a>
         <a href="certificate.html">Certificate</a>
         <a href="admission.html">Admission</a>
         <a href="officedata.html">officedata</a>
-    <a href="Login.html">Admin Login</a>
+  <a href="Login.html">Admin Login</a>
     </nav>
- <div style="margin:34px;font-size:20px">
-        <section id="Intro">
-            <h2><u>Designation:Manager </u></h2>
-            <!-- Officedata -->
 
 
+   
+    <section id="enquiry-form">
+        <h2>Enquiry Form</h2>
+        <form id="myForm" method="post" action="" name="contact-form">
+<input style="display:none" type="text" id="date" name="Date" value="">        
+<label for="name">Name:</label>
+        <input type="text" id="name" name="Name" required>
 
+        <label for="mobile">Mobile:</label>
+        <input type="text" id="mobile" name="Mobile" required>
 
-<h1 style="font-family:Sagona Book;">Anamika Raserao :</h1>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="Email" required>
+        <label for="name">Course:</label>
+        <select id="courseSelection" name="Course" required onchange="calculateFees()">
+    <option value="" disabled selected>Select a course</option>
+    <option value="hardwareNetworking" data-fees="5000">Hardware & Networking </option>
+    <option value="caa" data-fees="6000">CAA </option>
+    <option value="dcga" data-fees="5500">DCGA</option>
+    <option value="graphicDesigning" data-fees="8000">Graphic Designing </option>
+    <option value="animation" data-fees="65000">Animation </option>
+    <option value="architecture" data-fees="12000">Architecture </option>
+    <option value="googleSketchUp" data-fees="8000">Google SketchUp  </option>
+    <option value="webDesigning" data-fees="7000">Web Designing </option>
+    <option value="adsp" data-fees="20000">ADSP </option>
+    <option value="programming" data-fees="6500">Programming </option>
+    <option value="softwareProgramming" data-fees="15000">Software Programming </option>
+    <option value="digitalMarketing" data-fees="7500">Digital Marketing</option>
+    <!-- Add more options as needed -->
+</select>
 
-<table>
-    <thead>
-        <tr>
-            <th>Employee ID</th>
-            <th>Employee Name</th>
-            <th>Email</th>
-             <th>Batch time</th>
-            <th>Teaching course's</th>
-            
-            <th>joining Date</th>
-            <th>Salary</th>
-            
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>11034</td>
-            <td>Shweta biradar </td>
-            
-            <td>birader45@disha.com</td>
-            <td>10:00AM to 12:00PM & 1:00PM to 3:00PM</td>
-            <td>Fullstack</td>
-            <td>2023-01-15</td>
-            <td>50000.00</td>
-        </tr>
-        <tr>
-            <td>15478</td>
-            <td>Namrata Pawar</td>
-            
-            <td>pawar67@disha.com</td>
-            <td>10:00AM to 12:00PM & 1:00PM to 3:00PM</td>
-            <td>CAA</td>
-            <td>2022-05-22</td>
-            <td>60000.00</td>
-            
-        </tr>
-        <tr>
-            <td>48513</td>
-         <td> Anjali Shinde </td>
-            
-            <td>shinde45@disha.com</td>
-            <td>6:00PM to 9:00PM & 1:00PM to 3:00PM</td>
-            <td>DCGA</td>
-            <td>2023-01-17</td>
-            <td>25000.00</td>
-        </tr>
-        
-        <!-- Add more rows as needed -->
- 
+            <label for="fees">Fees:</label>
+            <input type="text" id="fees" name="Fees" readonly>
+        <label for="comment">Comment:</label>
+        <textarea id="comment" name="Comment"></textarea>
 
+        <button type="submit">Submit</button>
+        </form>
+<h2 style="text-align: center;display:none" id="1">Your Admission Form is Submitting...</h2>
+    </section>
+ <script>
 
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0');
+var yyyy = today.getFullYear();
+var d =today = yyyy + '-' + mm + '-' + dd;
+document.getElementById("date").value = d;
 
-    </tbody>
-</table>
+ const scriptURL = 'https://script.google.com/macros/s/AKfycbx6Q4uh_3P2u2sxWP7_yVzVqFCIrr8N_eEoAt0gXQUXSQ5oEfVta2qmduoHNwoEmvnNQQ/exec'
 
+const form = document.forms['contact-form']
+
+form.addEventListener('submit', e => {
+
+  e.preventDefault()
+
+  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+
+  .then(response => alert("Thank you! your form is submitted successfully." ))
+
+  .then(() => { window.location.reload(); })
+
+  .catch(error => console.error('Error!', error.message))
+
+})
+
+     function calculateFees() {
+            var courseSelect = document.getElementById("courseSelection");
+            var feesInput = document.getElementById("fees");
+
+            // Get the selected option and its data-fees attribute
+            var selectedOption = courseSelect.options[courseSelect.selectedIndex];
+            var fees = selectedOption.getAttribute("data-fees");
+
+            // Display the fees in the read-only input
+            feesInput.value = fees ? "₹ " + fees : "";
+     }
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevents the default form submission
+
+            // Display a message (you can replace this with any action you want)
+            alert("Form is Submitting..");
+
+            // Toggle the visibility of the element with id "1"
+            var element = document.getElementById("1");
+            element.style.display =  "block";
+        });
+    </script>
+    <footer>
+        <p>&copy; 2024 all rights reserved.</p>
+        <p>Corporate Office: B19, Krishnai Apartment, Sanghvi Nagar, Pune 411 007, Maharashtra, India</p>
+        <p>Contact: 020 4601 1745 | Email: info@dishagroup.in</p>
+        <p>Powered by Infisoft Technologies</p>
+    </footer>
+<script>
 </body>
-</html>
+
+    </html>
+    
