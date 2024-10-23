@@ -35,12 +35,17 @@
         <h2>Enquiry Form</h2>
         <form id="myForm" method="post" action="" name="contact-form">
 <input style="display:none" type="text" id="date" name="Date" value="">        
+<label for="name">Name:</label>
+        <input type="text" id="name" name="Name" required>
 
-        <Select name="name" id="idname" required oncharge="Salary">
+        <label for="mobile">Mobile:</label>
+        <input type="text" id="mobile" name="Mobile" required>
 
-       
-      
-   
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="Email" required>
+        <label for="name">Course:</label>
+        <select id="courseSelection" name="Course" required onchange="calculateFees()">
+    <option value="" disabled selected>Select a course</option>
     <option value="hardwareNetworking" data-fees="5000">Hardware & Networking </option>
     <option value="caa" data-fees="6000">CAA </option>
     <option value="dcga" data-fees="5500">DCGA</option>
