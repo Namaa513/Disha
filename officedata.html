@@ -1,7 +1,62 @@
-CREATE TABLE Users (
-    UserID INT PRIMARY KEY AUTO_INCREMENT,
-    Username VARCHAR(50) NOT NULL,
-    Email VARCHAR(100) NOT NULL UNIQUE,
-    CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple HTML Table</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 2px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+     
+    </style>
+</head>
+<body>
+
+<h1 style="font-family:Sagona Book;">Anamika Raserao :</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+            
+            <th>Email</th>
+            <th>joining Date</th>
+            <th>Salary</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Shweta biradar </td>
+            
+            <td>birader45@disha.com</td>
+            <td>2023-01-15</td>
+            <td>50000.00</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Namrata Pawar</td>
+            
+            <td>pawar67@disha.com</td>
+            <td>2022-05-22</td>
+            <td>60000.00</td>
+        </tr>
+        <!-- Add more rows as needed -->
+    </tbody>
+</table>
+
+</body>
+</html>
+
 
